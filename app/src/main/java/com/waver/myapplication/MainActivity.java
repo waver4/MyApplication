@@ -1,5 +1,9 @@
 package com.waver.myapplication;
 
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,15 +12,53 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Toolbar mtoolbar;
+    private Toolbar mtoolbar;
+    private TabLayout mtabs;
+    private NavigationView mnavigationview;
+    DrawerLayout mdrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //使用toolbar
-        mtoolbar = (Toolbar) findViewById(R.id.toolbar);
+        initToolBar();
+        initTabs();
+        initNavigationView();
+
+    }
+
+    //    侧滑菜单
+    private void initNavigationView() {
+
+        mnavigationview = (NavigationView) findViewById(R.id.navigationView);
+        mdrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //设置侧滑菜单选择监听事件
+        mnavigationview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                menuItem.setChecked(true);
+                //关闭抽屉侧滑菜单
+                mdrawerLayout.closeDrawers();
+                return true;
+            }
+        });
+
+    }
+
+    //使用Tabs
+    private void initTabs() {
+        mtabs = (TabLayout) findViewById(R.id.tab_layout);
+
+        mtabs.addTab(mtabs.newTab().setText("TAB1"));
+        mtabs.addTab(mtabs.newTab().setText("TAB2"));
+        mtabs.addTab(mtabs.newTab().setText("TAB3"));
+    }
+
+    //使用toolbar
+    private void initToolBar() {
+
+        mtoolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(mtoolbar);
 
         mtoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -25,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_edit:
                         Toast.makeText(MainActivity
-                        .this, "查找按钮", Toast.LENGTH_SHORT).show();
+                                .this, "查找按钮", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_share:
                         Toast.makeText(MainActivity
@@ -35,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     @Override
@@ -55,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+
+        if (id == android.R.id.home) {
+            //打开抽屉侧滑菜单
+            mdrawerLayout.openDrawer(GravityCompat.START);
         }
 
         return super.onOptionsItemSelected(item);
