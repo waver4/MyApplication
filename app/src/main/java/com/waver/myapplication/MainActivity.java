@@ -2,7 +2,9 @@ package com.waver.myapplication;
 
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,11 +13,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private Toolbar mtoolbar;
     private TabLayout mtabs;
     private NavigationView mnavigationview;
     DrawerLayout mdrawerLayout;
+    ViewPager mviewpager;
+    MyFragmentPagerAdapter madapter;
+    List<Fragment> mfragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +56,22 @@ public class MainActivity extends AppCompatActivity {
 
     //使用Tabs
     private void initTabs() {
+        mviewpager = (ViewPager) findViewById(R.id.viewpager);
+
         mtabs = (TabLayout) findViewById(R.id.tab_layout);
 
-        mtabs.addTab(mtabs.newTab().setText("TAB1"));
-        mtabs.addTab(mtabs.newTab().setText("TAB2"));
-        mtabs.addTab(mtabs.newTab().setText("TAB3"));
+
+        mfragments = new ArrayList<>();
+        FirstFragment tab1 = new FirstFragment();
+        SecondFragment tab2 = new SecondFragment();
+        ThirdFragment tab3 = new ThirdFragment();
+        mfragments.add(tab1);
+        mfragments.add(tab2);
+        mfragments.add(tab3);
+
+        madapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mfragments);
+        mviewpager.setAdapter(madapter);
+        mtabs.setupWithViewPager(mviewpager);
     }
 
     //使用toolbar
