@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-    private String[] title = new String[]{"1", "2", "3"};
+    private String[] title = new String[]{"疫苗", "体检", "美容"};
     List<Fragment> fragments;
 
     public MyFragmentPagerAdapter(FragmentManager fm, List<Fragment> mfragments) {
