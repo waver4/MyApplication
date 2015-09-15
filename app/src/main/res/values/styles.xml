@@ -6,6 +6,8 @@
         <item name="colorPrimary">#2196F3</item>
         <item name="colorPrimaryDark">#1565C0</item>
         <item name="colorAccent">#E91E63</item>
+        <!--返回键样式-->
+        <item name="drawerArrowStyle">@style/Base.Widget.AppCompat.DrawerArrowToggle</item>
     </style>
 
 </resources>

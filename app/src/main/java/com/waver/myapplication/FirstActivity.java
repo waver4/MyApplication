@@ -9,7 +9,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondActivity extends AppCompatActivity {
+public class FirstActivity extends AppCompatActivity {
     private Toolbar mtoolbar;
     private TabLayout mtabs;
     private NavigationView mnavigationview;
@@ -26,18 +25,17 @@ public class SecondActivity extends AppCompatActivity {
     private ViewPager mviewpager;
     private MyFragmentPagerAdapter madapter;
     private List<Fragment> mfragments;
-    private RecyclerView mrecyclerView;
-    List<String> mdata;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
 
         initToolBar();
         initTabs();
         initNavigationView();
+
 
     }
 
@@ -90,11 +88,11 @@ public class SecondActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_edit:
-                        Toast.makeText(SecondActivity
+                        Toast.makeText(FirstActivity
                                 .this, "查找按钮", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_share:
-                        Toast.makeText(SecondActivity
+                        Toast.makeText(FirstActivity
                                 .this, "分享按钮", Toast.LENGTH_SHORT).show();
                         break;
                 }

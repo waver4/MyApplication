@@ -1,8 +1,10 @@
 package com.waver.myapplication;
 
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar mtoolbar;
     private RecyclerView mRecyclerView;
     private MyAdapter mMyAdapter;
-    List<String> mdata;
+    private List<CardNews> mdata;
     private NavigationView mnavigationview;
     private DrawerLayout mdrawerLayout;
-
+    private ActionBarDrawerToggle mdrawerToggle;
 
 
     @Override
@@ -30,36 +32,48 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initToolBar();
+        findView();
+        initInstances();
         initRecyclerView();
         initNavigationView();
 
     }
 
-    private void initRecyclerView() {
+    private void findView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        mtoolbar = (Toolbar) findViewById(R.id.tool_bar);
+        mnavigationview = (NavigationView) findViewById(R.id.navigationView);
+        mdrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    }
 
+    private void initRecyclerView() {
         mRecyclerView.setHasFixedSize(true);
         mdata = new ArrayList<>();
-        for (int i = 'A'; i < 'Z'; i++) {
-            mdata.add(" " + (char) i);
-        }
+        mdata.add(new CardNews("sssssssssssssssssss", R.drawable.abab));
         // use a linear layout manager
-      LinearLayoutManager  mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mMyAdapter = new MyAdapter(this,mdata);
+        mMyAdapter = new MyAdapter(this, mdata);
         mRecyclerView.setAdapter(mMyAdapter);
     }
 
 
     //使用toolbar
-    private void initToolBar() {
+    private void initInstances() {
 
-        mtoolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(mtoolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);//设置返回键可用
+        mtoolbar.setTitle("优惠");
+        mtoolbar.setNavigationIcon(R.drawable.ic_menu_black_18dp);
 
+
+        //创建返回键，并实现开/关监听
+        mdrawerToggle = new ActionBarDrawerToggle(this, mdrawerLayout, R.string.open, R.string.close);
+        mdrawerToggle.syncState();
+        mdrawerLayout.setDrawerListener(mdrawerToggle);
         mtoolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -77,11 +91,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     //    侧滑菜单
     private void initNavigationView() {
 
-        mnavigationview = (NavigationView) findViewById(R.id.navigationView);
-        mdrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         //设置侧滑菜单选择监听事件
         mnavigationview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -89,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
                 menuItem.setChecked(true);
                 //关闭抽屉侧滑菜单
                 mdrawerLayout.closeDrawers();
+
+                switch (menuItem.getItemId()) {
+                    case R.id.navItem1:
+                        Intent intent = new Intent(MainActivity.this, FirstActivity.class);
+                        startActivity(intent);
+                        break;
+
+                }
                 return true;
             }
         });
@@ -108,10 +130,15 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        if (mdrawerToggle.onOptionsItemSelected(item))
+            return true;
+
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                break;
+
         }
 
 

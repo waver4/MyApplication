@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">维港健康</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="open">navigation_drawer_open</string>
+    <string name="close">navigation_drawer_close</string>
+
 </resources>
