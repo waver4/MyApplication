@@ -48,15 +48,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        mRecyclerView.setHasFixedSize(true);
-        mdata = new ArrayList<>();
-        mdata.add(new CardNews("sssssssssssssssssss", R.drawable.abab));
-        // use a linear layout manager
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // specify an adapter (see also next example)
+
+        mdata = new ArrayList<>();
+        mdata.add(new CardNews(getString(R.string.news_one_title), getString(R.string.news_one_desc), R.mipmap.ic_launcher));
+        mdata.add(new CardNews(getString(R.string.news_two_title), getString(R.string.news_two_desc), R.mipmap.ic_launcher));
+        mdata.add(new CardNews(getString(R.string.news_three_title), getString(R.string.news_three_desc), R.mipmap.ic_launcher));
+        mdata.add(new CardNews(getString(R.string.news_four_title), getString(R.string.news_four_desc), R.mipmap.ic_launcher));
+
         mMyAdapter = new MyAdapter(this, mdata);
+
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mMyAdapter);
     }
 

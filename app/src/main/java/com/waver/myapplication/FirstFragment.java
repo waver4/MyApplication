@@ -28,29 +28,29 @@ public class FirstFragment extends Fragment {
     }
 
     private void initDataset() {
+
         mdata = new ArrayList<>();
-        mdata.add(new CardNews("dddddddddddddddddddddddddddd",R.drawable.abab));
-        mdata.add(new CardNews("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",R.drawable.abab));
-        mdata.add(new CardNews("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",R.drawable.abab));
-        mdata.add(new CardNews("eeeeeeeeeeeeeeeeeeeeeeeeeeeeee",R.drawable.abab));
-        mdata.add(new CardNews("dddddddddddddddddddddddddddd",R.drawable.abab));
-        mdata.add(new CardNews("dddddddddddddddddddddddddddd",R.drawable.abab));
-        mdata.add(new CardNews("dddddddddddddddddddddddddddd",R.drawable.abab));
+        mdata.add(new CardNews(getString(R.string.news_one_title), getString(R.string.news_one_desc), R.mipmap.ic_launcher));
+        mdata.add(new CardNews(getString(R.string.news_two_title), getString(R.string.news_two_desc), R.mipmap.ic_launcher));
+        mdata.add(new CardNews(getString(R.string.news_three_title), getString(R.string.news_three_desc), R.mipmap.ic_launcher));
+        mdata.add(new CardNews(getString(R.string.news_four_title), getString(R.string.news_four_desc), R.mipmap.ic_launcher));
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.fragment_first, container, false);
+
         mrecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
-        final FragmentActivity c = getActivity();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(c,LinearLayoutManager.VERTICAL,false);
+        final FragmentActivity fragmentActivity = getActivity();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(fragmentActivity, LinearLayoutManager.VERTICAL, false);
         mrecyclerView.setLayoutManager(linearLayoutManager);
         new Thread(new Runnable() {
             @Override
             public void run() {
-                myAdapter = new MyAdapter(c,mdata);
-                c.runOnUiThread(new Runnable() {
+                myAdapter = new MyAdapter(fragmentActivity, mdata);
+                fragmentActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mrecyclerView.setAdapter(myAdapter);

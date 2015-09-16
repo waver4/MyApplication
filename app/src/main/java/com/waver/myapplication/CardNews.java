@@ -1,29 +1,42 @@
 package com.waver.myapplication;
 
 
-public class CardNews {
+import java.io.Serializable;
 
-    private String news_title;
-    private int news_icon;
+public class CardNews implements Serializable {
 
-    public CardNews(String title, int img) {
-        this.news_title = title;
-        this.news_icon = img;
+    //新闻标题，内容，图片
+    private String title;
+    private String desc;
+    private int photoId;
+
+    public CardNews(String name, String age, int photoId) {
+        this.title = name;
+        this.desc = age;
+        this.photoId = photoId;
     }
 
-    public void setNews_icon(int news_icon) {
-        this.news_icon = news_icon;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public void setNews_title(String news_title) {
-        this.news_title = news_title;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public int getNews_icon() {
-        return news_icon;
+    public void setPhotoId(int photoId) {
+        this.photoId = photoId;
     }
 
-    public String getNews_title() {
-        return news_title;
+    public String getDesc() {
+        return desc;
+    }
+
+    public int getPhotoId() {
+        return photoId;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }

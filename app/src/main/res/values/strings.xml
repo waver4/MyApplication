@@ -6,4 +6,21 @@
     <string name="open">navigation_drawer_open</string>
     <string name="close">navigation_drawer_close</string>
 
+    <string name="news_one_title">Dallas police HQ attack: Suspect believed killed during standoff</string>
+    <string name="news_one_desc">and ows the dark van ramming the nose of a police car before retreating in reverse</string>
+    <string name="news_two_title">肺炎13价疫苗(佐敦,铜锣湾,荃湾)</string>
+    <string name="news_two_desc">13价肺炎球菌结合疫苗是由美国辉瑞药厂(Pfizer)研制的，它覆盖最常见的13种血清型，覆盖率高达70% ，是目前覆盖率最高的结合疫苗。机构介绍
+卓健医疗服务有限公司（卓健医疗）于2013年10月正式加入国际医疗服务集团──保柏。卓健医疗的服务涵盖诊断、基层保健及专科服务。自1868年起植根香港，卓健医疗透过其多项专科设施齐备的100多间医疗中心及近500间联营诊所，为香港市民及访港旅客提供西医、中医、放射诊断、牙科及物理治疗服务。卓健医疗并营运护理介绍所，亦是香港最大规模为企业提供医疗服务的机构。于2012-13财政年度，卓健医疗录得超过270万求诊人次，并继续拓展其服务版图至高质专科服务，已在香港增设的专科服务包括：脑神经科、皮肤科、骨科、内分泌及糖尿科以及肿瘤科。
+卓健医疗（沙田）
+地址：新界沙田新城市商业大厦9楼905至907室
+注意事项
+疫苗接种时间：周一~周五 9：00-19：00 周六 8：30-17：00 周天 9：00-13：00；
+本预约服务包含首次接种医生诊断，如诊断不宜接种疫苗需现场付诊金170HDK；
+成功预约者请准时出席，若更改时间需提前24小时通知；
+接种疫苗请携带有效证件（通行证/香港身份证）</string>
+    <string name="news_three_title">加卫苗Gardasil+约见医生 沙田</string>
+    <string name="news_three_desc">加卫苗（四合一）是市面上覆盖最多HPV病毒及预防最多HPV病毒的疫苗，9岁以上男女皆可接种</string>
+    <string name="news_four_title">卉妍康Cervarix +约见医生 沙田</string>
+    <string name="news_four_desc">9岁或以上女性可接种，对比研究显示，卉妍康（二合一）疫苗产生抗体水平更高</string>
+
 </resources>
