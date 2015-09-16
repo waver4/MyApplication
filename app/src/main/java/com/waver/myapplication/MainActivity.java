@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         initRecyclerView();
         initNavigationView();
 
+
     }
 
     private void findView() {
@@ -64,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
     private void initInstances() {
 
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeButtonEnabled(true);//设置返回键可用
-        mtoolbar.setTitle("优惠");
-        mtoolbar.setNavigationIcon(R.drawable.ic_menu_black_18dp);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mtoolbar.setTitle("优惠");
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //创建返回键，并实现开/关监听
         mdrawerToggle = new ActionBarDrawerToggle(this, mdrawerLayout, R.string.open, R.string.close);
