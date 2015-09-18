@@ -52,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         mdata = new ArrayList<>();
-        mdata.add(new CardNews(getString(R.string.news_one_title), getString(R.string.news_one_desc), R.mipmap.ic_launcher));
-        mdata.add(new CardNews(getString(R.string.news_two_title), getString(R.string.news_two_desc), R.mipmap.ic_launcher));
-        mdata.add(new CardNews(getString(R.string.news_three_title), getString(R.string.news_three_desc), R.mipmap.ic_launcher));
-        mdata.add(new CardNews(getString(R.string.news_four_title), getString(R.string.news_four_desc), R.mipmap.ic_launcher));
+        mdata.add(new CardNews(getString(R.string.news_one_title), getString(R.string.news_one_desc), R.drawable.view01));
+        mdata.add(new CardNews(getString(R.string.news_two_title), getString(R.string.news_two_desc), R.drawable.view02));
+        mdata.add(new CardNews(getString(R.string.news_three_title), getString(R.string.news_three_desc), R.drawable.view03));
+        mdata.add(new CardNews(getString(R.string.news_four_title), getString(R.string.news_four_desc), R.drawable.view04));
 
         mMyAdapter = new MyAdapter(this, mdata);
 
@@ -110,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
                 mdrawerLayout.closeDrawers();
 
                 switch (menuItem.getItemId()) {
-                    case R.id.navItem1:
-                        Intent intent = new Intent(MainActivity.this, FirstActivity.class);
+                    case R.id.navItem2:
+                        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                         startActivity(intent);
                         break;
 

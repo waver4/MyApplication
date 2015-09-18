@@ -1,6 +1,7 @@
 package com.waver.myapplication;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -17,7 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
     private Toolbar mtoolbar;
     private TabLayout mtabs;
     private NavigationView mnavigationview;
@@ -52,6 +53,13 @@ public class FirstActivity extends AppCompatActivity {
                 menuItem.setChecked(true);
                 //关闭抽屉侧滑菜单
                 mdrawerLayout.closeDrawers();
+                switch (menuItem.getItemId()) {
+                    case R.id.navItem1:
+                        Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        break;
+
+                }
                 return true;
             }
         });
@@ -88,11 +96,11 @@ public class FirstActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_edit:
-                        Toast.makeText(FirstActivity
+                        Toast.makeText(SecondActivity
                                 .this, "查找按钮", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_share:
-                        Toast.makeText(FirstActivity
+                        Toast.makeText(SecondActivity
                                 .this, "分享按钮", Toast.LENGTH_SHORT).show();
                         break;
                 }
