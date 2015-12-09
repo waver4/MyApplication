@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="all">
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/navItem1"
-            android:icon="@drawable/ic_explore_white_24dp"
-            android:title="优惠"/>
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="首页" />
         <item
             android:id="@+id/navItem2"
-            android:icon="@drawable/ic_explore_white_24dp"
-            android:title="首页"/>
-
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Gallery" />
         <item
             android:id="@+id/navItem3"
-            android:icon="@drawable/ic_explore_white_24dp"
-            android:title="科普文章"/>
-
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Slideshow" />
         <item
             android:id="@+id/navItem4"
-            android:icon="@drawable/ic_explore_white_24dp"
-            android:title="小秘书"/>
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools" />
     </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/navItem5"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/navItem6"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
 
 </menu>

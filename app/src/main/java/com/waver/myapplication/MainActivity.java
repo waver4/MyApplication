@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()) {
                     case R.id.navItem2:
-                        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(intent);
                         break;
 
